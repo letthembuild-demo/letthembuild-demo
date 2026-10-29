@@ -23,6 +23,7 @@ export function bulkTotal(orders: Order[]): number {
 
 /** Handles POST /orders: parses the body and answers with the order's total. */
 export function handleCreateOrder(body: string): { status: number; json: unknown } {
+  console.log(`create order: ${body}`);
   const order = JSON.parse(body) as Order;
   return { status: 201, json: { id: order.id, totalCents: orderTotal(order) } };
 }
